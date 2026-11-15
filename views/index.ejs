@@ -1,54 +1,119 @@
 <%- include('partials/header') %>
 
-<!-- Hero section -->
+<!-- Hero: typing roles on the left, a "code window" about me on the right -->
 <section class="hero py-5">
-  <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-md-7">
-        <p class="text-uppercase small hero-eyebrow mb-2">Hello, I'm</p>
-        <h1 class="display-4 fw-bold"><%= profile.name %></h1>
-        <h2 class="h4 text-accent mb-3"><%= profile.role %></h2>
-        <p class="lead"><%= profile.tagline %></p>
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <p class="hero-eyebrow mb-2"><span class="status-dot"></span><%= profile.availability %></p>
+        <h1 class="hero-title fw-bold">Hi, I'm <span class="gradient-text"><%= profile.name %></span></h1>
+        <h2 class="hero-roles">
+          I'm a <span id="typed" class="typed" data-roles="<%= JSON.stringify(profile.roles) %>"><%= profile.roles[0] %></span><span class="caret">|</span>
+        </h2>
+        <p class="lead hero-tagline"><%= profile.tagline %></p>
         <div class="d-flex flex-wrap gap-2 mt-4">
           <a href="/projects" class="btn btn-accent btn-lg"><i class="fa-solid fa-folder-open me-2"></i>View Projects</a>
-          <a href="/contact" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-paper-plane me-2"></i>Get in Touch</a>
+          <a href="/contact" class="btn btn-outline-accent btn-lg"><i class="fa-solid fa-paper-plane me-2"></i>Get in Touch</a>
+        </div>
+        <div class="hero-social mt-4">
+          <a href="<%= profile.github %>" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="<%= profile.linkedin %>" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="/contact" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
-      <div class="col-md-5 text-center">
-        <img src="/images/avatar.svg" alt="Profile illustration" class="hero-avatar img-fluid">
+
+      <div class="col-lg-6">
+        <!-- Decorative code window built from the profile data -->
+        <div class="code-window" aria-label="A snippet of code describing me">
+          <div class="code-window-bar">
+            <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+            <span class="code-window-title">me.js</span>
+          </div>
+<pre class="code-body"><code><span class="tok-key">const</span> <span class="tok-var">me</span> = {
+  <span class="tok-prop">name</span>: <span class="tok-str">'<%= profile.name %>'</span>,
+  <span class="tok-prop">role</span>: <span class="tok-str">'<%= profile.role %>'</span>,
+  <span class="tok-prop">location</span>: <span class="tok-str">'<%= profile.location %>'</span>,
+  <span class="tok-prop">stack</span>: [<%- profile.skillGroups[1].items.slice(0, 3).map(function (s) { return '<span class="tok-str">\'' + s.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '\'</span>'; }).join(', ') %>],
+  <span class="tok-prop">learning</span>: <span class="tok-str">'<%= profile.learning[0] %>'</span>,
+  <span class="tok-prop">openToWork</span>: <span class="tok-bool">true</span>
+};
+
+<span class="tok-var">me</span>.<span class="tok-fn">sayHello</span>(); <span class="tok-comment">// 👋</span></code></pre>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Skills strip -->
-<section class="container py-5">
-  <h2 class="section-title text-center mb-4">What I Work With</h2>
-  <div class="d-flex flex-wrap justify-content-center gap-2">
-    <% profile.skills.forEach(function (skill) { %>
-      <span class="badge skill-badge fs-6"><%= skill %></span>
+<!-- Animated stats -->
+<section class="container pb-5">
+  <div class="row g-3">
+    <% profile.stats.forEach(function (s) { %>
+      <div class="col-6 col-md-3">
+        <div class="stat-card reveal text-center">
+          <i class="<%= s.icon %> stat-icon"></i>
+          <div class="stat-number"><span class="counter" data-target="<%= s.value %>">0</span><%= s.suffix || '' %></div>
+          <div class="stat-label"><%= s.label %></div>
+        </div>
+      </div>
     <% }); %>
   </div>
 </section>
 
-<!-- Featured projects -->
-<section class="container pb-4">
-  <h2 class="section-title text-center mb-4">Featured Projects</h2>
+<!-- What I do -->
+<section class="container py-5">
+  <h2 class="section-title mb-4 reveal"><span class="section-index">01</span> What I Do</h2>
+  <div class="row g-4">
+    <% profile.services.forEach(function (s) { %>
+      <div class="col-md-4">
+        <div class="service-card reveal h-100">
+          <div class="service-icon"><i class="<%= s.icon %>"></i></div>
+          <h3 class="h5"><%= s.title %></h3>
+          <p class="mb-0"><%= s.text %></p>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</section>
+
+<!-- Skills (shared partial) -->
+<section class="container py-5">
+  <h2 class="section-title mb-4 reveal"><span class="section-index">02</span> My Toolbox</h2>
+  <%- include('partials/skills') %>
+</section>
+
+<!-- Featured projects (shared project-card partial) -->
+<section class="container py-5">
+  <h2 class="section-title mb-4 reveal"><span class="section-index">03</span> Featured Projects</h2>
   <div class="row g-4">
     <% projects.forEach(function (p) { %>
-      <div class="col-md-4">
-        <div class="card project-card h-100">
-          <div class="card-body">
-            <i class="<%= p.icon %> project-icon mb-3"></i>
-            <h3 class="h5 card-title"><%= p.title %></h3>
-            <p class="card-text"><%= p.description %></p>
-          </div>
-        </div>
+      <div class="col-md-6 col-lg-4">
+        <%- include('partials/project-card', { p: p }) %>
       </div>
     <% }); %>
   </div>
   <div class="text-center mt-4">
     <a href="/projects" class="btn btn-outline-accent">See all projects <i class="fa-solid fa-arrow-right ms-1"></i></a>
+  </div>
+</section>
+
+<!-- Currently learning + call to action -->
+<section class="container py-5">
+  <div class="cta-band reveal">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <h2 class="h3 mb-2">Currently learning</h2>
+        <div class="d-flex flex-wrap gap-2">
+          <% profile.learning.forEach(function (item) { %>
+            <span class="badge skill-badge"><i class="fa-solid fa-seedling me-1"></i><%= item %></span>
+          <% }); %>
+        </div>
+      </div>
+      <div class="col-lg-5 text-lg-end">
+        <p class="mb-2">Have an idea or an opportunity?</p>
+        <a href="/contact" class="btn btn-accent btn-lg"><i class="fa-solid fa-handshake me-2"></i>Let's talk</a>
+      </div>
+    </div>
   </div>
 </section>
 

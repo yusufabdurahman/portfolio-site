@@ -1,40 +1,50 @@
 <%- include('partials/header') %>
 
 <section class="container py-5">
-  <h1 class="section-title mb-4"><i class="fa-solid fa-user me-2"></i>About Me</h1>
+  <h1 class="page-title mb-4"><span class="section-index">~/</span>about<span class="text-accent">_me</span></h1>
 
-  <div class="row g-4">
+  <!-- Bio + quick facts -->
+  <div class="row g-4 mb-5">
     <div class="col-lg-7">
       <% profile.about.forEach(function (para) { %>
-        <p class="lead"><%= para %></p>
+        <p class="lead reveal"><%= para %></p>
       <% }); %>
-      <p><i class="fa-solid fa-location-dot me-2 text-accent"></i><%= profile.location %></p>
+      <p class="reveal"><i class="fa-solid fa-location-dot me-2 text-accent"></i><%= profile.location %></p>
+      <a href="/contact" class="btn btn-accent mt-2"><i class="fa-solid fa-paper-plane me-2"></i>Work with me</a>
     </div>
 
     <div class="col-lg-5">
-      <div class="card info-card mb-4">
+      <div class="card info-card reveal">
         <div class="card-body">
-          <h2 class="h5"><i class="fa-solid fa-graduation-cap me-2 text-accent"></i>Education</h2>
-          <% profile.education.forEach(function (e) { %>
-            <p class="mb-1 fw-semibold"><%= e.school %></p>
-            <p class="mb-0 text-muted-soft"><%= e.detail %></p>
-            <p class="small text-muted-soft"><%= e.years %></p>
-          <% }); %>
-        </div>
-      </div>
-
-      <div class="card info-card">
-        <div class="card-body">
-          <h2 class="h5"><i class="fa-solid fa-screwdriver-wrench me-2 text-accent"></i>Skills</h2>
-          <div class="d-flex flex-wrap gap-2">
-            <% profile.skills.forEach(function (s) { %>
-              <span class="badge skill-badge"><%= s %></span>
+          <h2 class="h5 mb-3"><i class="fa-solid fa-face-smile me-2 text-accent"></i>Quick facts</h2>
+          <ul class="fact-list mb-0">
+            <% profile.funFacts.forEach(function (f) { %>
+              <li><i class="<%= f.icon %>"></i><span><%= f.text %></span></li>
             <% }); %>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Journey timeline -->
+  <h2 class="section-title mb-4 reveal"><span class="section-index">01</span> My Journey</h2>
+  <ol class="timeline mb-5">
+    <% profile.timeline.forEach(function (t) { %>
+      <li class="timeline-item reveal">
+        <span class="timeline-dot"><i class="<%= t.icon %>"></i></span>
+        <div class="timeline-card">
+          <span class="timeline-when"><%= t.when %></span>
+          <h3 class="h5 mb-1"><%= t.title %></h3>
+          <p class="mb-0"><%= t.text %></p>
+        </div>
+      </li>
+    <% }); %>
+  </ol>
+
+  <!-- Skills (shared partial) -->
+  <h2 class="section-title mb-4 reveal"><span class="section-index">02</span> Skills</h2>
+  <%- include('partials/skills') %>
 </section>
 
 <%- include('partials/footer') %>

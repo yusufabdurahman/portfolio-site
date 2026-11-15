@@ -1,0 +1,17 @@
+<!-- Reusable skills block (used on the Home and About pages) -->
+<div class="row g-4">
+  <% profile.skillGroups.forEach(function (group) { %>
+    <div class="col-md-4">
+      <div class="card info-card h-100 reveal">
+        <div class="card-body">
+          <h3 class="h5 mb-3"><i class="<%= group.icon %> me-2 text-accent"></i><%= group.title %></h3>
+          <div class="d-flex flex-wrap gap-2">
+            <% group.items.forEach(function (item) { %>
+              <span class="badge skill-badge"><%= item %></span>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+</div>

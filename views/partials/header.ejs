@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= title %> | <%= profile.name %></title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
+  <!-- Apply the saved theme and mark JS as available BEFORE the page paints (prevents a flash) -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-bs-theme', saved);
+      } catch (e) { /* storage blocked: stay on the default dark theme */ }
+    })();
+  </script>
+
+  <!-- Google Fonts: Space Grotesk (text) and JetBrains Mono (code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Bootstrap 5 CSS framework (https://getbootstrap.com) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <!-- Font Awesome icons (https://fontawesome.com) -->
@@ -15,17 +32,17 @@
 <body class="d-flex flex-column min-vh-100">
 
   <!-- Shared navigation bar: included on every page through this partial -->
-  <nav class="navbar navbar-expand-lg navbar-dark site-nav sticky-top">
+  <nav class="navbar navbar-expand-lg site-nav sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/">
-        <i class="fa-solid fa-terminal me-2"></i><%= profile.name %>
+      <a class="navbar-brand brand-mark" href="/">
+        <span class="brand-bracket">&lt;</span><%= profile.name.split(' ')[0] %><span class="brand-bracket">/&gt;</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <% const links = [
                { path: '/', label: 'Home', icon: 'fa-house' },
                { path: '/about', label: 'About Me', icon: 'fa-user' },
@@ -34,11 +51,19 @@
              ]; %>
           <% links.forEach(function (l) { %>
             <li class="nav-item">
-              <a class="nav-link <%= currentPath === l.path ? 'active' : '' %>" href="<%= l.path %>">
+              <a class="nav-link <%= currentPath === l.path ? 'active' : '' %>" href="<%= l.path %>"
+                 <%- currentPath === l.path ? 'aria-current="page"' : '' %>>
                 <i class="fa-solid <%= l.icon %> me-1"></i><%= l.label %>
               </a>
             </li>
           <% }); %>
+          <li class="nav-item ms-lg-2">
+            <!-- Dark / light theme switch (handled in public/javascripts/main.js) -->
+            <button type="button" id="themeToggle" class="btn theme-toggle" aria-label="Switch between dark and light theme">
+              <i class="fa-solid fa-moon theme-icon-dark"></i>
+              <i class="fa-solid fa-sun theme-icon-light"></i>
+            </button>
+          </li>
         </ul>
       </div>
     </div>
