@@ -1,0 +1,23 @@
+  </main>
+
+  <!-- Shared footer: included on every page. Contains the required GitHub and LinkedIn links. -->
+  <footer class="site-footer py-4 mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span>&copy; <%= new Date().getFullYear() %> <%= profile.name %>. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="<%= profile.github %>" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fa-brands fa-github fa-lg me-1"></i>GitHub
+        </a>
+        <a href="<%= profile.linkedin %>" target="_blank" rel="noopener" aria-label="LinkedIn" class="ms-3">
+          <i class="fa-brands fa-linkedin fa-lg me-1"></i>LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS bundle (needed for the mobile navbar toggle) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- My own script, served from public/javascripts -->
+  <script src="/javascripts/main.js"></script>
+</body>
+</html>
