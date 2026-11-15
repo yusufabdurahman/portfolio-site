@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<section class="container py-5">
+  <h1 class="section-title mb-4"><i class="fa-solid fa-user me-2"></i>About Me</h1>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <% profile.about.forEach(function (para) { %>
+        <p class="lead"><%= para %></p>
+      <% }); %>
+      <p><i class="fa-solid fa-location-dot me-2 text-accent"></i><%= profile.location %></p>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card info-card mb-4">
+        <div class="card-body">
+          <h2 class="h5"><i class="fa-solid fa-graduation-cap me-2 text-accent"></i>Education</h2>
+          <% profile.education.forEach(function (e) { %>
+            <p class="mb-1 fw-semibold"><%= e.school %></p>
+            <p class="mb-0 text-muted-soft"><%= e.detail %></p>
+            <p class="small text-muted-soft"><%= e.years %></p>
+          <% }); %>
+        </div>
+      </div>
+
+      <div class="card info-card">
+        <div class="card-body">
+          <h2 class="h5"><i class="fa-solid fa-screwdriver-wrench me-2 text-accent"></i>Skills</h2>
+          <div class="d-flex flex-wrap gap-2">
+            <% profile.skills.forEach(function (s) { %>
+              <span class="badge skill-badge"><%= s %></span>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

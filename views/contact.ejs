@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+<section class="container py-5">
+  <h1 class="section-title mb-4"><i class="fa-solid fa-envelope me-2"></i>Contact Me</h1>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <% if (sent) { %>
+        <div class="alert alert-success" role="alert">
+          <i class="fa-solid fa-circle-check me-2"></i>Thanks! Your message was received.
+        </div>
+      <% } else { %>
+        <% if (typeof error !== 'undefined' && error) { %>
+          <div class="alert alert-danger" role="alert"><%= error %></div>
+        <% } %>
+        <!-- The form POSTs to /contact, which is handled in routes/index.js -->
+        <form action="/contact" method="POST" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%= form.name || '' %>" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%= form.email || '' %>" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required><%= form.message || '' %></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
+        </form>
+      <% } %>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card info-card">
+        <div class="card-body">
+          <h2 class="h5 mb-3">Other ways to reach me</h2>
+          <p><i class="fa-solid fa-envelope me-2 text-accent"></i><a href="mailto:<%= profile.email %>"><%= profile.email %></a></p>
+          <p><i class="fa-brands fa-github me-2 text-accent"></i><a href="<%= profile.github %>" target="_blank" rel="noopener">GitHub</a></p>
+          <p class="mb-0"><i class="fa-brands fa-linkedin me-2 text-accent"></i><a href="<%= profile.linkedin %>" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

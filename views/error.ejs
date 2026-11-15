@@ -1,0 +1,10 @@
+<%- include('partials/header', { profile: { name: 'Portfolio', github: '#', linkedin: '#' }, currentPath: '' }) %>
+
+<section class="container py-5 text-center">
+  <h1 class="display-4"><%= message %></h1>
+  <h2 class="h5 text-muted-soft"><%= error.status %></h2>
+  <pre class="text-start d-inline-block"><%= error.stack %></pre>
+  <div class="mt-4"><a href="/" class="btn btn-accent">Back to Home</a></div>
+</section>
+
+<%- include('partials/footer', { profile: { name: 'Portfolio', github: '#', linkedin: '#' } }) %>

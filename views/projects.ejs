@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<section class="container py-5">
+  <h1 class="section-title mb-4"><i class="fa-solid fa-folder-open me-2"></i>Projects</h1>
+
+  <div class="row g-4">
+    <% projects.forEach(function (p) { %>
+      <div class="col-md-6 col-lg-4">
+        <div class="card project-card h-100">
+          <div class="card-body d-flex flex-column">
+            <i class="<%= p.icon %> project-icon mb-3"></i>
+            <h2 class="h5 card-title"><%= p.title %></h2>
+            <p class="card-text flex-grow-1"><%= p.description %></p>
+            <div class="mb-3 d-flex flex-wrap gap-1">
+              <% p.tags.forEach(function (t) { %>
+                <span class="badge skill-badge"><%= t %></span>
+              <% }); %>
+            </div>
+            <a href="<%= p.link %>" target="_blank" rel="noopener" class="btn btn-outline-accent btn-sm align-self-start">
+              <i class="fa-brands fa-github me-1"></i>View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
