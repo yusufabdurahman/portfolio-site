@@ -3,54 +3,108 @@ var router = express.Router();
 
 /*
  * ---------------------------------------------------------------
- *  EDIT YOUR DETAILS HERE. Every page and the footer read from
- *  these objects, so you only change your info in one place.
+ *  EDIT YOUR DETAILS HERE. Every page, the navbar and the footer
+ *  read from these objects, so you only change your info in one
+ *  place. Anything marked TODO is a placeholder to replace.
  * ---------------------------------------------------------------
  */
 const profile = {
   name: 'Yusuf Abdurahman',
-  role: 'Computer Science Student',
-  tagline: 'I build clean, responsive web apps with Node.js, Express and JavaScript.',
+  // The hero section types through these roles one after another
+  roles: ['Web Developer', 'Node.js Builder', 'Lifelong Learner', 'Problem Solver'],
+  role: 'Software & Web Development Student', // TODO: edit
+  tagline: 'I turn ideas into fast, responsive and friendly web apps with Node.js, Express and JavaScript.',
   location: 'Ontario, Canada',
-  email: 'your-email@example.com',             // TODO: replace
-  github: 'https://github.com/your-username',   // TODO: replace
+  availability: 'Open to internships and co-op opportunities', // TODO: edit
+  email: 'your-email@example.com',               // TODO: replace
+  github: 'https://github.com/your-username',     // TODO: replace
   linkedin: 'https://www.linkedin.com/in/your-profile/', // TODO: replace
+
   about: [
-    'I am a student at Ontario Tech University studying software and web development. I enjoy turning ideas into working, user-friendly websites.',
-    'This portfolio was built for INFR3120 using Node.js, Express, the EJS templating engine, Bootstrap and Font Awesome.'
+    'I am a student at Ontario Tech University who enjoys turning ideas into working, user-friendly websites. I like understanding how things work under the hood, from the browser all the way to the server.', // TODO: edit
+    'This portfolio was built for INFR3120 (Web and Scripting Programming) using Node.js, Express, the EJS templating engine, Bootstrap and Font Awesome, and it is deployed on the cloud.'
   ],
-  skills: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express', 'EJS', 'Bootstrap', 'Git & GitHub'],
-  education: [
-    { school: 'Ontario Tech University', detail: 'Bachelor of Information Technology (in progress)', years: '2023 - Present' } // TODO: edit
+
+  // Animated counters on the home page (TODO: replace with your real numbers)
+  stats: [
+    { value: 5,  label: 'Projects built',    icon: 'fa-solid fa-code' },
+    { value: 12, label: 'Technologies used', icon: 'fa-solid fa-layer-group' },
+    { value: 100, suffix: '%', label: 'Curiosity', icon: 'fa-solid fa-lightbulb' },
+    { value: 1,  label: 'Cloud deployment',  icon: 'fa-solid fa-cloud' }
+  ],
+
+  // "What I do" cards on the home page
+  services: [
+    { icon: 'fa-solid fa-server',   title: 'Build',  text: 'Server-side apps with Node.js and Express: routes, templates and clean structure.' },
+    { icon: 'fa-solid fa-palette',  title: 'Design', text: 'Responsive, accessible interfaces with Bootstrap and custom CSS.' },
+    { icon: 'fa-solid fa-rocket',   title: 'Ship',   text: 'Version control with Git and GitHub, then deploying live to the cloud.' }
+  ],
+
+  // Skills grouped by area (shown on Home and About)
+  skillGroups: [
+    { title: 'Front-end', icon: 'fa-solid fa-display',
+      items: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Font Awesome'] },
+    { title: 'Back-end', icon: 'fa-solid fa-server',
+      items: ['Node.js', 'Express', 'EJS', 'REST routes'] },
+    { title: 'Tools', icon: 'fa-solid fa-screwdriver-wrench',
+      items: ['Git', 'GitHub', 'VS Code', 'Render', 'npm'] }
+  ],
+
+  // Things currently being learned (TODO: edit)
+  learning: ['MongoDB', 'REST APIs', 'Authentication', 'TypeScript'],
+
+  // Journey timeline on the About page (TODO: edit dates and details)
+  timeline: [
+    { when: '2023 - Present', title: 'Ontario Tech University', text: 'Studying software and web development. Your program name here.', icon: 'fa-solid fa-graduation-cap' },
+    { when: 'Assignment 1', title: 'First portfolio', text: 'Built my first personal website using plain HTML and CSS.', icon: 'fa-brands fa-html5' },
+    { when: 'Assignment 2', title: 'Express + EJS portfolio', text: 'Rebuilt the site with Express, EJS partials and Bootstrap, then deployed it live.', icon: 'fa-brands fa-node-js' },
+    { when: 'Next', title: 'Full-stack projects', text: 'Adding a database and user accounts to my next app.', icon: 'fa-solid fa-database' }
+  ],
+
+  // Short personal facts (TODO: make these yours)
+  funFacts: [
+    { icon: 'fa-solid fa-mug-hot',   text: 'Fuelled by coffee and curiosity' },
+    { icon: 'fa-solid fa-gamepad',   text: 'Your hobby here' },
+    { icon: 'fa-solid fa-language',  text: 'Languages you speak here' },
+    { icon: 'fa-solid fa-book-open', text: 'Currently reading: your book here' }
   ]
 };
 
-// TODO: replace these placeholder projects with your real ones
+// TODO: replace these placeholder projects with your real ones.
+// "demo" is optional: leave it out if a project has no live link.
 const projects = [
-  {
-    title: 'Portfolio Website (Assignment 1)',
-    icon: 'fa-solid fa-globe',
-    description: 'My first portfolio, built with plain HTML and CSS.',
-    tags: ['HTML', 'CSS'],
-    link: profile.github
-  },
   {
     title: 'Express Portfolio (this site)',
     icon: 'fa-brands fa-node-js',
-    description: 'A multi-page site using Express routes, EJS partials and Bootstrap, deployed to the cloud.',
+    description: 'A multi-page portfolio using Express routes, EJS partials, Bootstrap and a dark/light theme, deployed to the cloud.',
     tags: ['Node.js', 'Express', 'EJS', 'Bootstrap'],
-    link: profile.github
+    repo: profile.github
+    // demo: 'https://your-site.onrender.com'
   },
   {
-    title: 'Your Next Project',
-    icon: 'fa-solid fa-code',
-    description: 'Describe a course project, hackathon build or personal app here.',
+    title: 'Portfolio Website v1',
+    icon: 'fa-brands fa-html5',
+    description: 'My first portfolio built with plain HTML and CSS for Assignment 1.',
+    tags: ['HTML', 'CSS'],
+    repo: profile.github
+  },
+  {
+    title: 'Course Project (replace me)',
+    icon: 'fa-solid fa-laptop-code',
+    description: 'Describe a course project, hackathon build or personal app here: what it does and what you learned.',
     tags: ['JavaScript'],
-    link: profile.github
+    repo: profile.github
+  },
+  {
+    title: 'Next Big Idea (replace me)',
+    icon: 'fa-solid fa-lightbulb',
+    description: 'A place for the project you are most proud of. Add the problem it solves and the tools you used.',
+    tags: ['Node.js', 'JavaScript'],
+    repo: profile.github
   }
 ];
 
-// Make "profile" available in every EJS view (header, footer and pages)
+// Make "profile" available in every EJS view (navbar, footer and pages)
 router.use(function (req, res, next) {
   res.locals.profile = profile;
   res.locals.currentPath = req.path;
@@ -74,7 +128,7 @@ router.get('/projects', function (req, res, next) {
 
 /* GET Contact Me page. */
 router.get('/contact', function (req, res, next) {
-  res.render('contact', { title: 'Contact Me', sent: false, form: {} });
+  res.render('contact', { title: 'Contact Me', sent: false, error: null, form: {} });
 });
 
 /* POST Contact form: validates input and re-renders the page with a thank-you message.
