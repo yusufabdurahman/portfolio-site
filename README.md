@@ -17,6 +17,19 @@ All routes are defined in `routes/index.js` and each one calls `res.render(...)`
 | `GET /contact` | `views/contact.ejs` | Contact Me form |
 | `POST /contact` | `views/contact.ejs` | Validates the form and shows a thank-you message |
 
+## Features
+
+- Dark / light theme switch (saved in `localStorage`)
+- Typing-effect hero and a "code window" built from the profile data
+- Animated stat counters and scroll-reveal animations
+- Skills, journey timeline and quick facts on the About page
+- Project filter buttons (by technology) on the Projects page
+- Contact form with server-side validation and a copy-email button
+- Reusable EJS partials: `header`, `footer`, `skills`, `project-card`
+- Custom error page showing the real status code
+
+All content (name, links, projects, timeline) comes from the objects at the top of `routes/index.js`.
+
 ## Project structure
 
 ```
@@ -24,7 +37,7 @@ app.js                  Express app setup (view engine, static files, routers, e
 bin/www                 HTTP server entry point (reads PORT from the environment)
 routes/index.js         All page routes + the profile/project data shown in the views
 routes/users.js         Default file created by express-generator
-views/partials/         header.ejs (navbar) and footer.ejs (GitHub + LinkedIn links)
+views/partials/         header.ejs (navbar), footer.ejs (GitHub + LinkedIn links), skills.ejs, project-card.ejs
 views/*.ejs             Page templates; each includes the header and footer partials
 public/stylesheets/     Custom CSS (style.css)
 public/javascripts/     Client-side JS (main.js)
@@ -63,6 +76,7 @@ Then open http://localhost:3000
 | [Express Generator](https://expressjs.com/en/starter/generator.html) | Express / OpenJS Foundation | Base structure: `app.js`, `bin/www`, `routes/users.js` |
 | [Bootstrap 5.3.3](https://getbootstrap.com) | Bootstrap authors | Layout, navbar, cards, forms (CDN link in `header.ejs`) |
 | [Font Awesome 6.5.2 Free](https://fontawesome.com) | Fonticons, Inc. | Icons (CDN link in `header.ejs`) |
+| [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) fonts | Florian Karsten / JetBrains (via Google Fonts) | Page typography (link in `header.ejs`) |
 | Course lecture material | INFR3120 instructor | Express/EJS routing and partial patterns |
 
 All other code (routes, views, CSS, JS, SVG avatar) was written for this assignment.
