@@ -78,6 +78,20 @@ const projects = [
     // demo: 'https://your-site.onrender.com'   // add your Render link here after deploying
   },
   {
+    title: 'Game Project (Programming Class)',
+    icon: 'fa-solid fa-gamepad',
+    description: 'A game I coded for my programming class. It covers game logic, user input and keeping the code organized as the features grew.',
+    tags: ['Programming', 'Game Logic'],   // TODO: change to the language you used, e.g. 'Java' or 'Python'
+    repo: profile.github
+  },
+  {
+    title: 'School System Architecture',
+    icon: 'fa-solid fa-school',
+    description: 'A system architecture project for a school: planning how its parts (students, courses, staff and data) fit together, and documenting the design.',
+    tags: ['Architecture', 'System Design'],
+    repo: profile.github
+  },
+  {
     title: 'Portfolio Website v1',
     icon: 'fa-brands fa-html5',
     description: 'My first portfolio, built with plain HTML and CSS for Assignment 1.',
