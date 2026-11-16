@@ -1,6 +1,11 @@
 # Express Portfolio Site (INFR3120 Assignment 2)
 
-Personal portfolio built with **Node.js**, **Express** and the **EJS** templating engine.
+Personal portfolio of **Yusuf Abdurahman** (Information Technology & Technology Management student, Ontario, Canada), built with **Node.js**, **Express** and the **EJS** templating engine.
+
+- Author: Yusuf Abdurahman
+- Email: yusufabdurahman401@gmail.com
+- GitHub: https://github.com/yusufabdurahman
+- LinkedIn: https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/
 
 - Live site: `TODO: paste your Render URL`
 - Repository: `TODO: paste your GitHub URL`
@@ -41,7 +46,7 @@ views/partials/         header.ejs (navbar), footer.ejs (GitHub + LinkedIn links
 views/*.ejs             Page templates; each includes the header and footer partials
 public/stylesheets/     Custom CSS (style.css)
 public/javascripts/     Client-side JS (main.js)
-public/images/          Image assets
+public/images/          Image assets (profile.jpg is the profile photo)
 ```
 
 ## How it was set up
@@ -78,5 +83,10 @@ Then open http://localhost:3000
 | [Font Awesome 6.5.2 Free](https://fontawesome.com) | Fonticons, Inc. | Icons (CDN link in `header.ejs`) |
 | [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) fonts | Florian Karsten / JetBrains (via Google Fonts) | Page typography (link in `header.ejs`) |
 | Course lecture material | INFR3120 instructor | Express/EJS routing and partial patterns |
+| [Claude](https://claude.ai) (AI assistant) | Anthropic | AI assistance while building this project (see below) |
 
-All other code (routes, views, CSS, JS, SVG avatar) was written for this assignment.
+## AI usage disclosure
+
+AI assistance was used on this project, with permission for this assignment. I used Claude, an AI assistant made by Anthropic, to help write and edit code (routes, EJS views, CSS and client-side JavaScript) and to fill in my personal details and documentation. Every file contains explanatory comments describing what the code does. I reviewed the code and am able to explain how it works.
+
+All other code not listed above was written for this assignment.
