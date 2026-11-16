@@ -3,9 +3,8 @@ var router = express.Router();
 
 /*
  * ---------------------------------------------------------------
- *  EDIT YOUR DETAILS HERE. Every page, the navbar and the footer
- *  read from these objects, so you only change your info in one
- *  place. Anything marked TODO is a placeholder to replace.
+ *  SITE DATA. Every page, the navbar and the footer read from
+ *  these objects, so personal info is changed in one place.
  * ---------------------------------------------------------------
  */
 const profile = {
@@ -19,59 +18,55 @@ const profile = {
   email: 'yusufabdurahman401@gmail.com',
   github: 'https://github.com/yusufabdurahman',
   linkedin: 'https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/',
-  photo: '/images/profile.jpg', // profile picture, served from public/images
 
   about: [
-    'I am an Information Technology and Technology Management student at Ontario Tech University who enjoys turning ideas into working, user-friendly websites. I like understanding how things work under the hood, from the browser all the way to the server, and how technology decisions affect real users and teams.',
+    'I am an Information Technology student at Ontario Tech University with a focus on technology management. I enjoy understanding both sides of tech: how software is built, and how teams and organizations use it to solve real problems.',
     'This portfolio was built for INFR3120 (Web and Scripting Programming) using Node.js, Express, the EJS templating engine, Bootstrap and Font Awesome, and it is deployed on the cloud.'
   ],
 
-  // Animated counters on the home page (TODO: replace with your real numbers)
+  // Animated counters on the home page
   stats: [
-    { value: 5,  label: 'Projects built',    icon: 'fa-solid fa-code' },
-    { value: 12, label: 'Technologies used', icon: 'fa-solid fa-layer-group' },
+    { value: 2,  label: 'Portfolio sites built', icon: 'fa-solid fa-code' },
+    { value: 8,  label: 'Technologies used',     icon: 'fa-solid fa-layer-group' },
     { value: 100, suffix: '%', label: 'Curiosity', icon: 'fa-solid fa-lightbulb' },
-    { value: 1,  label: 'Cloud deployment',  icon: 'fa-solid fa-cloud' }
+    { value: 1,  label: 'Cloud deployment',      icon: 'fa-solid fa-cloud' }
   ],
 
   // "What I do" cards on the home page
   services: [
-    { icon: 'fa-solid fa-server',   title: 'Build',  text: 'Server-side apps with Node.js and Express: routes, templates and clean structure.' },
-    { icon: 'fa-solid fa-palette',  title: 'Design', text: 'Responsive, accessible interfaces with Bootstrap and custom CSS.' },
-    { icon: 'fa-solid fa-rocket',   title: 'Ship',   text: 'Version control with Git and GitHub, then deploying live to the cloud.' }
+    { icon: 'fa-solid fa-server',  title: 'Build',  text: 'Server-side apps with Node.js and Express: routes, templates and clean structure.' },
+    { icon: 'fa-solid fa-diagram-project', title: 'Plan', text: 'Technology management thinking: organizing work, requirements and priorities before building.' },
+    { icon: 'fa-solid fa-rocket',  title: 'Ship',   text: 'Version control with Git and GitHub, then deploying live to the cloud.' }
   ],
 
   // Skills grouped by area (shown on Home and About)
   skillGroups: [
     { title: 'Front-end', icon: 'fa-solid fa-display',
-      items: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Font Awesome'] },
+      items: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'] },
     { title: 'Back-end', icon: 'fa-solid fa-server',
-      items: ['Node.js', 'Express', 'EJS', 'REST routes'] },
-    { title: 'Tools', icon: 'fa-solid fa-screwdriver-wrench',
-      items: ['Git', 'GitHub', 'VS Code', 'Render', 'npm'] }
+      items: ['Node.js', 'Express', 'EJS'] },
+    { title: 'Tools & Management', icon: 'fa-solid fa-screwdriver-wrench',
+      items: ['Git', 'GitHub', 'VS Code', 'Render', 'Project Planning'] }
   ],
 
-  // Things currently being learned (TODO: edit)
-  learning: ['MongoDB', 'REST APIs', 'Authentication', 'TypeScript'],
+  learning: ['MongoDB', 'REST APIs', 'Authentication', 'Project Management'],
 
-  // Journey timeline on the About page (TODO: edit dates and details)
+  // Journey timeline on the About page
   timeline: [
-    { when: '2023 - Present', title: 'Ontario Tech University', text: 'Studying Information Technology and Technology Management, combining technical skills with a management mindset.', icon: 'fa-solid fa-graduation-cap' },
+    { when: 'Currently', title: 'Ontario Tech University', text: 'Studying Information Technology with a focus on Technology Management.', icon: 'fa-solid fa-graduation-cap' },
     { when: 'Assignment 1', title: 'First portfolio', text: 'Built my first personal website using plain HTML and CSS.', icon: 'fa-brands fa-html5' },
     { when: 'Assignment 2', title: 'Express + EJS portfolio', text: 'Rebuilt the site with Express, EJS partials and Bootstrap, then deployed it live.', icon: 'fa-brands fa-node-js' },
     { when: 'Next', title: 'Full-stack projects', text: 'Adding a database and user accounts to my next app.', icon: 'fa-solid fa-database' }
   ],
 
-  // Short personal facts (TODO: make these yours)
   funFacts: [
-    { icon: 'fa-solid fa-mug-hot',   text: 'Fuelled by coffee and curiosity' },
-    { icon: 'fa-solid fa-gamepad',   text: 'Your hobby here' },
-    { icon: 'fa-solid fa-language',  text: 'Languages you speak here' },
-    { icon: 'fa-solid fa-book-open', text: 'Currently reading: your book here' }
+    { icon: 'fa-solid fa-futbol',       text: 'Love playing and watching sports' },
+    { icon: 'fa-solid fa-dumbbell',     text: 'Staying active and training' },
+    { icon: 'fa-solid fa-people-group', text: 'Team player: sports taught me collaboration' },
+    { icon: 'fa-solid fa-mug-hot',      text: 'Fuelled by coffee and curiosity' }
   ]
 };
 
-// TODO: replace these placeholder projects with your real ones.
 // "demo" is optional: leave it out if a project has no live link.
 const projects = [
   {
@@ -80,27 +75,13 @@ const projects = [
     description: 'A multi-page portfolio using Express routes, EJS partials, Bootstrap and a dark/light theme, deployed to the cloud.',
     tags: ['Node.js', 'Express', 'EJS', 'Bootstrap'],
     repo: profile.github
-    // demo: 'https://your-site.onrender.com'
+    // demo: 'https://your-site.onrender.com'   // add your Render link here after deploying
   },
   {
     title: 'Portfolio Website v1',
     icon: 'fa-brands fa-html5',
-    description: 'My first portfolio built with plain HTML and CSS for Assignment 1.',
+    description: 'My first portfolio, built with plain HTML and CSS for Assignment 1.',
     tags: ['HTML', 'CSS'],
-    repo: profile.github
-  },
-  {
-    title: 'Course Project (replace me)',
-    icon: 'fa-solid fa-laptop-code',
-    description: 'Describe a course project, hackathon build or personal app here: what it does and what you learned.',
-    tags: ['JavaScript'],
-    repo: profile.github
-  },
-  {
-    title: 'Next Big Idea (replace me)',
-    icon: 'fa-solid fa-lightbulb',
-    description: 'A place for the project you are most proud of. Add the problem it solves and the tools you used.',
-    tags: ['Node.js', 'JavaScript'],
     repo: profile.github
   }
 ];
