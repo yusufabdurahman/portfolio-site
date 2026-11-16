@@ -2,36 +2,49 @@
 
 Personal portfolio of **Yusuf Abdurahman** (Information Technology & Technology Management student, Ontario, Canada), built with **Node.js**, **Express** and the **EJS** templating engine.
 
-- Author: Yusuf Abdurahman
-- Email: yusufabdurahman401@gmail.com
-- GitHub: https://github.com/yusufabdurahman
-- LinkedIn: https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/
+Author: Yusuf Abdurahman
 
-- Live site: `TODO: paste your Render URL`
-- Repository: `TODO: paste your GitHub URL`
+Email: yusufabdurahman401@gmail.com
+
+GitHub: https://github.com/yusufabdurahman
+
+LinkedIn: https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/
+
+Live site: `TODO: paste your Render URL`
+
+Repository: https://github.com/yusufabdurahman/portfolio-site
 
 ## Pages and routes
 
 All routes are defined in `routes/index.js` and each one calls `res.render(...)`.
 
-| Route | View | Purpose |
-|-------|------|---------|
-| `GET /` | `views/index.ejs` | Home page |
-| `GET /about` | `views/about.ejs` | About Me |
-| `GET /projects` | `views/projects.ejs` | Projects |
-| `GET /contact` | `views/contact.ejs` | Contact Me form |
-| `POST /contact` | `views/contact.ejs` | Validates the form and shows a thank-you message |
+`GET /` renders `views/index.ejs` (Home page)
+
+`GET /about` renders `views/about.ejs` (About Me)
+
+`GET /projects` renders `views/projects.ejs` (Projects)
+
+`GET /contact` renders `views/contact.ejs` (Contact Me form)
+
+`POST /contact` renders `views/contact.ejs` (validates the form and shows a thank-you message)
 
 ## Features
 
-- Dark / light theme switch (saved in `localStorage`)
-- Typing-effect hero and a "code window" built from the profile data
-- Animated stat counters and scroll-reveal animations
-- Skills, journey timeline and quick facts on the About page
-- Project filter buttons (by technology) on the Projects page
-- Contact form with server-side validation and a copy-email button
-- Reusable EJS partials: `header`, `footer`, `skills`, `project-card`
-- Custom error page showing the real status code
+Dark theme design
+
+Typing-effect hero and a "code window" built from the profile data
+
+Animated stat counters and scroll-reveal animations
+
+Skills, journey timeline and quick facts on the About page
+
+Project filter buttons (by technology) on the Projects page
+
+Contact form with server-side validation and a copy-email button
+
+Reusable EJS partials: `header`, `footer`, `skills`, `project-card`
+
+Custom error page showing the real status code
 
 All content (name, links, projects, timeline) comes from the objects at the top of `routes/index.js`.
 
@@ -76,17 +89,16 @@ Then open http://localhost:3000
 
 ## External code and citations
 
-| Source | Author | Where it is used |
-|--------|--------|------------------|
-| [Express Generator](https://expressjs.com/en/starter/generator.html) | Express / OpenJS Foundation | Base structure: `app.js`, `bin/www`, `routes/users.js` |
-| [Bootstrap 5.3.3](https://getbootstrap.com) | Bootstrap authors | Layout, navbar, cards, forms (CDN link in `header.ejs`) |
-| [Font Awesome 6.5.2 Free](https://fontawesome.com) | Fonticons, Inc. | Icons (CDN link in `header.ejs`) |
-| [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) fonts | Florian Karsten / JetBrains (via Google Fonts) | Page typography (link in `header.ejs`) |
-| Course lecture material | INFR3120 instructor | Express/EJS routing and partial patterns |
-| [Claude](https://claude.ai) (AI assistant) | Anthropic | AI assistance while building this project (see below) |
+[Express Generator](https://expressjs.com/en/starter/generator.html) by Express / OpenJS Foundation: base structure (`app.js`, `bin/www`, `routes/users.js`)
 
-## AI usage disclosure
+[Bootstrap 5.3.3](https://getbootstrap.com) by the Bootstrap authors: layout, navbar, cards and forms (CDN link in `header.ejs`)
 
-AI assistance was used on this project, with permission for this assignment. I used Claude, an AI assistant made by Anthropic, to help write and edit code (routes, EJS views, CSS and client-side JavaScript) and to fill in my personal details and documentation. Every file contains explanatory comments describing what the code does. I reviewed the code and am able to explain how it works.
+[Font Awesome 6.5.2 Free](https://fontawesome.com) by Fonticons, Inc.: icons (CDN link in `header.ejs`)
 
-All other code not listed above was written for this assignment.
+[Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) via Google Fonts: page fonts (link in `header.ejs`)
+
+Course lecture material from the INFR3120 instructor: Express/EJS routing and partial patterns
+
+## AI use
+
+I used AI (Claude, made by Anthropic) to help edit the code for this project. I was taught how to use AI tools and I am allowed to use them for this assignment, so I am stating it here openly.
