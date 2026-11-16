@@ -6,6 +6,7 @@
   <!-- Bio + quick facts -->
   <div class="row g-4 mb-5">
     <div class="col-lg-7">
+      <img src="<%= profile.photo %>" alt="Photo of <%= profile.name %>" class="profile-photo profile-photo-lg mb-4 reveal" width="180" height="180">
       <% profile.about.forEach(function (para) { %>
         <p class="lead reveal"><%= para %></p>
       <% }); %>
