@@ -2,6 +2,8 @@
   "name": "portfolio-site",
   "version": "0.0.0",
   "private": true,
+  "description": "Personal portfolio of Yusuf Abdurahman, built with Node.js, Express and EJS",
+  "author": "Yusuf Abdurahman <yusufabdurahman401@gmail.com> (https://github.com/yusufabdurahman)",
   "scripts": {
     "start": "node ./bin/www"
   },

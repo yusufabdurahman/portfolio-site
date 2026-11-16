@@ -11,17 +11,18 @@ var router = express.Router();
 const profile = {
   name: 'Yusuf Abdurahman',
   // The hero section types through these roles one after another
-  roles: ['Web Developer', 'Node.js Builder', 'Lifelong Learner', 'Problem Solver'],
-  role: 'Software & Web Development Student', // TODO: edit
-  tagline: 'I turn ideas into fast, responsive and friendly web apps with Node.js, Express and JavaScript.',
+  roles: ['IT Student', 'Web Developer', 'Tech Management Learner', 'Problem Solver'],
+  role: 'Information Technology & Technology Management Student',
+  tagline: 'I combine IT skills with a technology management mindset to build web apps that are practical, reliable and easy to use.',
   location: 'Ontario, Canada',
-  availability: 'Open to internships and co-op opportunities', // TODO: edit
-  email: 'your-email@example.com',               // TODO: replace
-  github: 'https://github.com/your-username',     // TODO: replace
-  linkedin: 'https://www.linkedin.com/in/your-profile/', // TODO: replace
+  availability: 'Open to internships and co-op opportunities',
+  email: 'yusufabdurahman401@gmail.com',
+  github: 'https://github.com/yusufabdurahman',
+  linkedin: 'https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/',
+  photo: '/images/profile.jpg', // profile picture, served from public/images
 
   about: [
-    'I am a student at Ontario Tech University who enjoys turning ideas into working, user-friendly websites. I like understanding how things work under the hood, from the browser all the way to the server.', // TODO: edit
+    'I am an Information Technology and Technology Management student at Ontario Tech University who enjoys turning ideas into working, user-friendly websites. I like understanding how things work under the hood, from the browser all the way to the server, and how technology decisions affect real users and teams.',
     'This portfolio was built for INFR3120 (Web and Scripting Programming) using Node.js, Express, the EJS templating engine, Bootstrap and Font Awesome, and it is deployed on the cloud.'
   ],
 
@@ -55,7 +56,7 @@ const profile = {
 
   // Journey timeline on the About page (TODO: edit dates and details)
   timeline: [
-    { when: '2023 - Present', title: 'Ontario Tech University', text: 'Studying software and web development. Your program name here.', icon: 'fa-solid fa-graduation-cap' },
+    { when: '2023 - Present', title: 'Ontario Tech University', text: 'Studying Information Technology and Technology Management, combining technical skills with a management mindset.', icon: 'fa-solid fa-graduation-cap' },
     { when: 'Assignment 1', title: 'First portfolio', text: 'Built my first personal website using plain HTML and CSS.', icon: 'fa-brands fa-html5' },
     { when: 'Assignment 2', title: 'Express + EJS portfolio', text: 'Rebuilt the site with Express, EJS partials and Bootstrap, then deployed it live.', icon: 'fa-brands fa-node-js' },
     { when: 'Next', title: 'Full-stack projects', text: 'Adding a database and user accounts to my next app.', icon: 'fa-solid fa-database' }
