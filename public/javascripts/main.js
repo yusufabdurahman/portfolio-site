@@ -16,18 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* 2. Dark / light theme toggle (choice is remembered in localStorage) */
-  var themeBtn = document.getElementById('themeToggle');
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var root = document.documentElement;
-      var next = root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-bs-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) { /* storage blocked: ignore */ }
-    });
-  }
-
-  /* 3. Typing effect for the hero roles (reads roles from the data-roles attribute) */
+  /* 2. Typing effect for the hero roles (reads roles from the data-roles attribute) */
   var typedEl = document.getElementById('typed');
   if (typedEl && !reduceMotion) {
     var roles = [];
@@ -51,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  /* 4. Scroll reveal + animated counters (IntersectionObserver) */
+  /* 3. Scroll reveal + animated counters (IntersectionObserver) */
   var revealEls = document.querySelectorAll('.reveal');
   var counters = document.querySelectorAll('.counter');
 
@@ -84,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     counters.forEach(runCounter);
   }
 
-  /* 5. Project filter buttons */
+  /* 4. Project filter buttons */
   var filterBtns = document.querySelectorAll('.filter-btn');
   var items = document.querySelectorAll('.project-item');
   var noResults = document.getElementById('noResults');
@@ -105,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* 6. Copy email to clipboard (contact page) */
+  /* 5. Copy email to clipboard (contact page) */
   var copyBtn = document.getElementById('copyEmail');
   if (copyBtn && navigator.clipboard) {
     copyBtn.addEventListener('click', function () {
@@ -117,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* 7. Back-to-top button */
+  /* 6. Back-to-top button */
   var toTop = document.getElementById('toTop');
   if (toTop) {
     window.addEventListener('scroll', function () {
