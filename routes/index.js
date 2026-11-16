@@ -26,7 +26,7 @@ const profile = {
 
   // Animated counters on the home page
   stats: [
-    { value: 2,  label: 'Portfolio sites built', icon: 'fa-solid fa-code' },
+    { value: 4,  label: 'Projects built',        icon: 'fa-solid fa-code' },
     { value: 8,  label: 'Technologies used',     icon: 'fa-solid fa-layer-group' },
     { value: 100, suffix: '%', label: 'Curiosity', icon: 'fa-solid fa-lightbulb' },
     { value: 1,  label: 'Cloud deployment',      icon: 'fa-solid fa-cloud' }
@@ -81,7 +81,7 @@ const projects = [
     title: 'Game Project (Programming Class)',
     icon: 'fa-solid fa-gamepad',
     description: 'A game I coded for my programming class. It covers game logic, user input and keeping the code organized as the features grew.',
-    tags: ['Programming', 'Game Logic'],   // TODO: change to the language you used, e.g. 'Java' or 'Python'
+    tags: ['Programming', 'Game Logic'],   // change to the language you used, e.g. 'Java' or 'Python'
     repo: profile.github
   },
   {
