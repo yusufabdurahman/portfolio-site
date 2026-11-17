@@ -18,7 +18,9 @@ const profile = {
   email: 'yusufabdurahman401@gmail.com',
   github: 'https://github.com/yusufabdurahman',
   linkedin: 'https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/',
-
+  linkedin: 'https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/',
+  photo: '/images/profile.jpg',
+  
   about: [
     'I am an Information Technology student at Ontario Tech University with a focus on technology management. I enjoy understanding both sides of tech: how software is built, and how teams and organizations use it to solve real problems.',
     'This portfolio was built for INFR3120 (Web and Scripting Programming) using Node.js, Express, the EJS templating engine, Bootstrap and Font Awesome, and it is deployed on the cloud.'
