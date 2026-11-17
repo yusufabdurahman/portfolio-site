@@ -10,7 +10,7 @@ GitHub: https://github.com/yusufabdurahman
 
 LinkedIn: https://www.linkedin.com/in/yusuf-abdurahman-677ab0347/
 
-Live site: `TODO: paste your Render URL`
+Live site: `https://portfolio-site-kk0b.onrender.com`
 
 Repository: https://github.com/yusufabdurahman/portfolio-site
 
